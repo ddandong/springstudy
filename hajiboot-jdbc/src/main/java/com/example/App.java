@@ -16,12 +16,19 @@ public class App implements CommandLineRunner
 	
 
 	public void run(String...strings) throws Exception{
-		String sql = "SELECT 1";
+		/*String sql = "SELECT 1";
 		SqlParameterSource param = new MapSqlParameterSource();
 		Integer result = jdbcTemplate.queryForObject(sql, param, Integer.class);
 		
-		System.out.println("result = " + result);
-	}
+		System.out.println("result = " + result);*/
+		
+		String sql = "SELECT :a + :b";
+		SqlParameterSource param = new MapSqlParameterSource()
+				.addValue("a", 100)
+				.addValue("b",200);
+		Integer result = jdbcTemplate.queryForObject(sql, param, Integer.class);
+		System.out.println("result : " + result);
+}
 	
     public static void main( String[] args )
     {
