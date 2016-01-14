@@ -30,7 +30,7 @@ public class App implements CommandLineRunner
 		System.out.println(created + "is created!");
 	
 		//데이터 표시
-		customerRepository.findAll().forEach(System.out::println);
+		customerRepository.findAllOrderByName().forEach(System.out::println);
 	}
 	
     public static void main( String[] args )
